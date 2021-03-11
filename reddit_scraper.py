@@ -78,10 +78,3 @@ def get_posts(subreddit: str, section: str, start_page_number = 0, pages = 1, ti
                 last_id = div.attrs['id'][6:]
 
     return posts
-
-# Testing 
-if __name__ == '__main__':
-
-    posts = get_posts('ShowerThoughts', 'new', 0, 4)
-
-    print(len(posts))
