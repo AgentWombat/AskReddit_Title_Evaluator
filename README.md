@@ -14,18 +14,23 @@ METHOD: The data is the title of reddit posts. Each label is either 1 for 'made 
 
 - 'Reddit_Scraping_Script.py' implements 'reddit_scraper' with a simple cli to provide for easy data collection.
 
-- 'embedding' provides function for takeing stings -> 2d numerical arrays. For its functions to work with default keyword arguments, the GloVe 100d word vector file must be in the same directory.
+- 'embedding.py' provides function for takeing stings -> 2d numerical arrays. For its functions to work with default keyword arguments, the GloVe 100d word vector file must be in the same directory.
 
 - 'model.py' contains the StringModel class which is a wraps around a keras LSTM model. It automatically converts string inputs using embeddings for ease of use.
 
 - 'train_model_script.py' Is what I used to train the model
+
+- 'parsed_data' has the data I used to train and evaluate model64.
 
 
 
 EXTERNAL LIBRARIES:
 
 Tensorflow
+
 NumPy
+
 scikit-learn
+
 also, GloVe word embeddings were used to convert strings to numerical arrays. The embeddings can be found here: https://nlp.stanford.edu/projects/glove/
 
