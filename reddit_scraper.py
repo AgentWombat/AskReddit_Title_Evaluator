@@ -5,9 +5,7 @@ import time
 
 def get_posts(subreddit: str, section: str, start_page_number = 0, pages = 1, time_frame = 'all', store_link = False):
     '''
-    Returns an array in which each entry is a dictionary containing information about a poist on the spesified reddit page.
-    The way reddit's website is set up, one must reach page n-1 to access page n. This function might take a little bit to run when attempting to access highly indexed pages.
-    Skips advertisements.
+    Returns an array in which each entry is a dictionary containing information about a post on the spesified reddit page. It grabs every post on each page and skips advertisements.
     :param subreddit: The subreddit to be scrapped.
     :param section: 'top', 'new', 'hot'. The section of the subreddit.
     :param start_page_number: 0 is the first page. The starting page index of the posts.
@@ -15,6 +13,7 @@ def get_posts(subreddit: str, section: str, start_page_number = 0, pages = 1, ti
     :param time_frame: 'hour', 'day', 'week', 'month', 'year', 'all'. Only does anything when sectoon is set to 'top'. Sets the time over which top posts will be scraped.
     :return: The posts array. Each post is represented by a dictionary with 'title', 'link', 'karma', and 'comment_count' keys.
     '''
+
     # To access page n, the get request must contain the id of the last post on page n-1.
     # 'last_id' is neccisary because it stores the id of the last post on a page.
     # This is then used to access the page successive to the current page.
@@ -45,7 +44,7 @@ def get_posts(subreddit: str, section: str, start_page_number = 0, pages = 1, ti
             else:
                 i += 1
                 if i > MAX_ATTEMPTS:
-                    raise Exception("Failed to connect after " + MAX_ATTEMPTS + " attempts")
+                    raise ValueError("Failed to connect after " + MAX_ATTEMPTS + " attempts")
 
                 time.sleep(2)
 
@@ -79,7 +78,6 @@ def get_posts(subreddit: str, section: str, start_page_number = 0, pages = 1, ti
                 last_id = div.attrs['id'][6:]
 
     return posts
-
 
 # Testing 
 if __name__ == '__main__':
