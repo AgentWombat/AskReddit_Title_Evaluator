@@ -36,5 +36,7 @@ NumPy
 
 scikit-learn
 
+BeautifulSoup
+
 also, GloVe word embeddings were used to convert strings to numerical arrays. The embeddings can be found here: https://nlp.stanford.edu/projects/glove/
 
