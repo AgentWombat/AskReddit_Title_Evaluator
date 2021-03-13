@@ -7,7 +7,7 @@ import random
 
 class StringModel():
     '''
-    An LSTM model which makes a binary prediction based on an inputed string.
+    An LSTM model which makes binary predictions based on inputed strings.
     '''
     def __init__(self, metrics = ['accuracy'], embedding = None, max_words = 40):
         '''
