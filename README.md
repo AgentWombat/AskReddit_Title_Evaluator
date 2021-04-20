@@ -1,14 +1,15 @@
 # AskReddit_Title_Evaluator
 The end goal is to use machine learning to train a model to predict if an AskReddit post will make it to the front page.
 
-the GloVe word embeddings are NEEDED for all machine learning functionality. I downloaded 'glove.6B.zip'. Extract the 100d vector text file and place it in the same directory as the other script files.
+The GloVe word embeddings are NEEDED for all machine learning functionality. I downloaded 'glove.6B.zip'. Extract the 100d vector text file and place it in the same directory as the other script files.
 https://nlp.stanford.edu/projects/glove/
 (I cannot include it here as the file size it too big)
 
-METHOD: The data is the title of reddit posts. Each label is either 1 for 'made it to the front page' and 0 for 'did not make it to the front page'.
+
+METHOD: The data are the titles of reddit posts. Each label is either 1 for 'made it to the front page' or 0 for 'did not make it to the front page'.
         Successes were collected from the top of all time section of AskReddit and the top 25 post of hot for the last week or so (written 3/10). (~900 posts)
         Failures were collected by taking every new post for a spesific time peried and the bottom 25 post of hot for the last week or so (written 3/10). (~900 posts)
-        It should be alright to collect faulures like this because over ~1000 posts are made to askreddit every three hours and a negligable portion of those make it to the front page
+        It should be alright to collect failures like this because over ~1000 posts are made to AskReddit every three hours and a negligable portion of those make it to the front page
         
         
 - 'model64' is a model which maintained 64% accuracy on test data. More interestingly, if the threshold is set to .75, the model has 80% percision and 41% recall on the test data.
